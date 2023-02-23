@@ -1,0 +1,96 @@
+<section id="main" class="p-3">
+  <div class="container">
+    <div class="form-container">
+      <div class="left-container">
+        <div class="left-inner-container">
+          <h2>Let's Chat</h2>
+          <p>
+            Whether you have a question, want to start a project or simply want
+            to connect.
+          </p>
+          <br />
+          <p>Feel free to send me a message in the contact form</p>
+        </div>
+      </div>
+      <div class="right-container">
+        <div class="right-inner-container">
+          <h1>Need Help?</h1>
+          <form [formGroup]="angForm" novalidate (ngSubmit)="submitIssue()">
+            <div class="form-group">
+              <label>Title:</label>
+              <input class="form-control" formControlName="title" type="text" />
+            </div>
+            <div
+              *ngIf="
+                angForm.controls['title'].invalid &&
+                (angForm.controls['title'].dirty ||
+                  angForm.controls['title'].touched)
+              "
+              class="alert alert-danger"
+            >
+              <div *ngIf="angForm.controls['title'].errors">
+                Title is required.
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Address:</label>
+              <input
+                class="form-control"
+                formControlName="address"
+                type="text"
+              />
+            </div>
+            <div
+              *ngIf="
+                angForm.controls['address'].invalid &&
+                (angForm.controls['address'].dirty ||
+                  angForm.controls['address'].touched)
+              "
+              class="alert alert-danger"
+            >
+              <div *ngIf="angForm.controls['address'].errors">
+                Address is required.
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Description:</label>
+              <textarea
+                class="form-control"
+                formControlName="description"
+                type="text"
+              ></textarea>
+            </div>
+            <div
+              *ngIf="
+                angForm.controls['description'].invalid &&
+                (angForm.controls['description'].dirty ||
+                  angForm.controls['description'].touched)
+              "
+              class="alert alert-danger"
+            >
+              <div *ngIf="angForm.controls['description'].errors">
+                Description is required.
+              </div>
+            </div>
+            <button
+              type="submit"
+              [disabled]="angForm.pristine || angForm.invalid"
+              class="mt-2 btn btn-success"
+            >
+              Save
+            </button>
+          </form>
+          <div class="alert alert-danger alert-dismissible fade show mt-3" *ngIf="error!==''" role="alert">
+            <strong>{{error}}</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          <!-- <small class="alert alert-danger" *ngIf="error!==''">{{error}}</small> -->
+        </div>
+
+      </div>
+      <br />
+      <!-- <p>Form value: {{ angForm.value | json }}</p>
+      <p>Form status: {{ angForm.status | json }}</p> -->
+    </div>
+  </div>
+</section>

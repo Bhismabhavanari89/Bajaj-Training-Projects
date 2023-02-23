@@ -1,0 +1,225 @@
+<app-top-nav></app-top-nav>
+<section class="h-100 bg-dark">
+  <!-- <div [ngStyle]="{'color': 'blue'}">Hello</div> -->
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col">
+        <div class="card card-registration my-4">
+          <div class="row g-0">
+            <div class="col-xl-6 d-none d-xl-block">
+              <img
+                src="https://images.unsplash.com/photo-1515150144380-bca9f1650ed9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
+                alt="Sample photo"
+                class="img-fluid"
+                style="
+                  border-top-left-radius: 0.25rem;
+                  border-bottom-left-radius: 0.25rem;
+                "
+              />
+            </div>
+            <form
+              class="col-xl-6"
+              #f="ngForm"
+              novalidate
+              (ngSubmit)="onSubmit(f)"
+            
+            >
+              <div class="card-body p-md-5 text-black">
+                <div class="mb-2">
+                  <img
+                    src="../../assets/images/a.jpeg"
+                    style="height: 100%; width: 50px"
+                    class="mr-3 mb-3"
+                  />
+                  <span class="h1 fw-bold mb-0">Rythu</span>
+                </div>
+                <h3 class="mb-5 text-uppercase">Sign up Form</h3>
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-outline">
+                      <div
+                        [hidden]="
+                          fname.valid || (fname.pristine && !f.submitted)
+                        "
+                        class="alert alert-danger"
+                      >
+                        First Name is required (Min 3 characters)
+                      </div>
+                      <input
+                        placeholder="Enter your First Name"
+                        type="text"
+                        id="form3Example1m"
+                        class="form-control form-control-lg"
+                        name="firstname"
+                        [(ngModel)]="user2.firstname"
+                        #fname="ngModel"
+                        required
+                        minlength="3"
+                      />
+                      <label class="form-label" for="form3Example1m"
+                        >First name*</label
+                      >
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-outline">
+                      <div
+                        [hidden]="
+                          lname.valid || (lname.pristine && !f.submitted)
+                        "
+                        class="alert alert-danger"
+                      >
+                        Last Name is required (Min 3 characters)
+                      </div>
+                      <input
+                        placeholder="Enter your Last Name"
+                        type="text"
+                        id="form3Example1n"
+                        class="form-control form-control-lg"
+                        name="lastname"
+                        [(ngModel)]="user2.lastname"
+                        #lname="ngModel"
+                        required
+                        minlength="3"
+                      />
+                      <label class="form-label" for="form3Example1n"
+                        >Last name*</label
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-outline">
+                  <div
+                    [hidden]="email.valid || (email.pristine && !f.submitted)"
+                  >
+                    <small
+                      *ngIf="email.errors?.['required'] "
+                      class="alert alert-danger"
+                    >
+                      Email is required
+                    </small>
+                    <small
+                      *ngIf=" email.errors?.['pattern']"
+                      class="alert alert-danger"
+                    >
+                      Email address is invalid
+                    </small>
+                  </div>
+                  <input
+                    type="email"
+                    name="email"
+                    [(ngModel)]="user2.email"
+                    #email="ngModel"
+                    id="email"
+                    required
+                    pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                    class="form-control form-control-lg"
+                    placeholder="Enter Email ID: "
+                  />
+                  <label class="form-label" for="form3Example97"
+                    >Email ID*</label
+                  >
+                </div>
+
+                <div class="form-outline">
+                  <div class="form-outline">
+                    <div [hidden]="pwd.valid || (pwd.pristine && !f.submitted)">
+                      <small
+                        *ngIf="pwd.errors?.['required'] "
+                        class="alert alert-danger"
+                      >
+                        Password is required (Min 8 characters)
+                      </small>
+                      <small
+                        *ngIf=" pwd.errors?.['pattern']"
+                        class="alert alert-danger"
+                      >
+                        Password should contain atleast one number and one
+                        special character
+                      </small>
+                    </div>
+                    <input
+                      name="password"
+                      [(ngModel)]="user2.password"
+                      #pwd="ngModel"
+                      type="password"
+                      id="password"
+                      class="form-control form-control-lg"
+                      placeholder="Enter the Password: "
+                      required
+                      pattern="^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$"
+                    />
+                    <label class="form-label" for="password">Password*</label>
+                  </div>
+
+                  <div class="form-outline">
+                    <div class="form-outline">
+                      <div
+                        [hidden]="
+                          phone.valid || (phone.pristine && !f.submitted)
+                        "
+                      >
+                        <small
+                          *ngIf="phone.errors?.['required'] "
+                          class="alert alert-danger"
+                        >
+                          Phone Number is required
+                        </small>
+                        <small
+                          *ngIf=" phone.errors?.['pattern']"
+                          class="alert alert-danger"
+                        >
+                          Phone Number should be valid
+                        </small>
+                      </div>
+                      <input
+                        name="phonenumber"
+                        [(ngModel)]="user2.phonenumber"
+                        #phone="ngModel"
+                        required
+                        minlength="10"
+                        inputmode="numeric"
+                        placeholder="Enter Phone Number: "
+                        type="number"
+                        id="number"
+                        class="form-control form-control-lg"
+                        pattern="^\d{10}$"
+                      />
+                      <label class="form-label" for="number"
+                        >Phone Number*</label
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <div class="d-flex justify-content-end pt-3">
+                  <input type="submit" value="Submit form" class="btn btn-warning btn-lg ms-2">
+                  
+                </div>
+
+                <p class="mb-5 pb-lg-2" style="color: #393f81">
+                  Already have an account
+                  <a routerLink="/login" style="color: #393f81"
+                    >Login here</a
+                  >
+                </p>
+              </div>
+            </form>
+            <!-- <div class="container">
+              <h4 class="text-success">Your Details</h4>
+              <h5>First Name: {{ f.value.fname }}</h5>
+              <h5>Last Name: {{ f.value.lname }}</h5>
+              <h5>Email: {{ f.value.email }}</h5>
+              <h5>Password: {{ f.value.pwd }}</h5>
+              <h5>Phone Number: {{ f.value.phone }}</h5>
+              <h5>{{ f.value | json }}</h5>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<app-footer></app-footer>

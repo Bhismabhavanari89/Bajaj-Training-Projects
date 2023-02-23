@@ -1,0 +1,105 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div data-aos-duration="1000" class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img
+        src="../../assets/images/a.jpeg"
+        style="height: 100%; width: 50px"
+        class="fa-2x mx-3 ps-1"
+      />
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/home" href="#home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/home#scheme">Schemes</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Agriculture
+          </a>
+
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" routerLink="/home"> Crops </a></li>
+            <li>
+              <a class="dropdown-item" routerLink="/home/machinery">
+                Machinery
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="/home#grievances">Grievances</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/buynow">Buy Fertilizers</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav d-flex flex-row ms-auto me-3">
+        <li class="nav-item">
+          <a class="nav-link" *ngIf="user.token" routerLink="/cart"
+            ><i class="fas fa-shopping-cart"></i
+          ></a>
+        </li>
+        <li class="nav-item me-3 me-lg-0 dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <img
+              src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg"
+              class="rounded-circle"
+              height="22"
+              alt=""
+              loading="lazy"
+            />
+          </a>
+          <ul
+            class="dropdown-menu dropdown-menu-end"
+            aria-labelledby="navbarDropdown1"
+          >
+            <div *ngIf="!this.user.token">
+              <li><a class="dropdown-item" routerLink="/signup">Sign Up</a></li>
+              <li><a class="dropdown-item" routerLink="/login">Login</a></li>
+            </div>
+            <div *ngIf="this.user.token">
+              <li>
+                <button class="dropdown-item" (click)="logout()">Logout</button>
+              </li>
+            </div>
+            <li>
+              <hr class="dropdown-divider" />
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="/myissues">My Issues</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
