@@ -1,0 +1,19 @@
+<section id="body">
+  <h1>OUR PRODUCTS</h1>
+  <div class="cards">
+    
+    <div class="card"  *ngFor="let product of products;let i=index">
+      <div class="photo">
+          <img src="{{product.image}}" style="width:80%; height: 70%;">
+        </div>
+        <div class="description">
+        <h3>{{product.name}}</h3>
+        <h2><i class="fa-solid fa-indian-rupee-sign"></i> {{product.price}}</h2>
+        <p>{{product.description | slice:0:120}}</p>
+        <div class="btn mt-5">
+          <button routerLink="/admin-home/update-products/{{product.id}}">Update</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

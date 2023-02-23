@@ -1,0 +1,95 @@
+.products 
+{
+    width: 100%;
+    padding: 50px;
+}
+
+
+.table
+{
+    width: 100%;
+    margin-top: 30px;
+   
+} 
+
+
+.table,td,th 
+{
+    border: 1px solid lightgray;
+    border-collapse: collapse;
+}
+
+.table td,.table th 
+{
+    text-align: center;
+    
+    padding: 15px 0px;
+   
+}
+
+.table th 
+{
+    width: 20%;
+}
+
+
+
+.qtbtn 
+{
+    padding: 7px 10px;
+    background-color: transparent;
+    border: 1px solid gray;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0px 10px;
+}
+
+.qtbtn:nth-of-type(1)
+{
+    color: red;
+}
+
+.qtbtn:nth-of-type(2)
+{
+    color: green;
+}
+
+
+.action
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 20px;
+    border: none;
+}
+
+.btn.btn-primary {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+    background-image: linear-gradient(to right, #77A1D3 0%, #79CBCA 51%, #77A1D3 100%);
+    border: none;
+    transition: 0.5s;
+    background-size: 200% auto;
+
+}
+
+
+.btn.btn.btn-primary:hover {
+    background-position: right center;
+    color: #fff;
+    text-decoration: none;
+}
+
+
+
+.btn.btn-primary:hover .fas.fa-arrow-right {
+    transform: translate(15px);
+    transition: transform 0.2s ease-in;
+}
+
+@media (max-width: 767.98px) { .border-sm-start-none { border-left: none !important; } }

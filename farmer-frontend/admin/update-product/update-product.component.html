@@ -1,0 +1,137 @@
+<section id="body">
+  <div class="main-container">
+    <form
+      id="form"
+      #updateform="ngForm"
+      (ngSubmit)="updateProduct(product_id, updateform.value)"
+    >
+      <h3
+        style="
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          font-weight: 700;
+          font-size: 23pt;
+        "
+        class="p-3"
+      >
+        UPDATE PRODUCT
+      </h3>
+      <div class="form-control">
+        <div [hidden]="name.valid || (name.pristine && !updateform.submitted)">
+          <small *ngIf="name.errors?.['required'] " class="alert alert-danger">
+            Name is required
+          </small>
+        </div>
+        <input
+          type="text"
+          name="name"
+          #name="ngModel"
+          required
+          value="{{ update_product_details?.name }}"
+          ngModel
+        /><br />
+
+        <div
+        [hidden]="price.valid || (price.pristine && !updateform.submitted)"
+      >
+        <small *ngIf="price.errors?.['required'] " class="alert alert-danger">
+          price is required
+        </small>
+      </div>
+        <input
+          type="number"
+          name="price"
+          #price="ngModel"
+          required
+          value="{{ update_product_details?.price }}"
+          ngModel
+        /><br />
+
+        <div
+          [hidden]="image.valid || (image.pristine && !updateform.submitted)"
+        >
+          <small *ngIf="image.errors?.['required'] " class="alert alert-danger">
+            Image URL is required
+          </small>
+        </div>
+        <input
+          type="text"
+          name="image"
+          #image="ngModel"
+          required
+          value="{{ update_product_details?.image }}"
+          ngModel
+        /><br />
+
+        <div
+          [hidden]="
+            description.valid || (description.pristine && !updateform.submitted)
+          "
+        >
+          <small
+            *ngIf="description.errors?.['required'] "
+            class="alert alert-danger"
+          >
+            Description is required
+          </small>
+        </div>
+        <textarea
+          type="text"
+          name="description"
+          #description="ngModel"
+          required
+          value="{{ update_product_details?.description }}"
+          ngModel
+        ></textarea
+        ><br />
+        <select name="cid" ngModel>
+          <option value="">--Select Category--</option>
+          <option
+            *ngFor="let item of categorylist; let i = index"
+            value="{{ i + 1 }}"
+          >
+            {{ item.name }}
+          </option></select
+        ><br />
+        <input class="button" type="submit" name="" value="Update Product" />
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- <form
+  #updateform="ngForm"
+  (ngSubmit)="updateProduct(product_id, updateform.value)"
+>
+  <h2>Update Product</h2>
+  <input
+    type="text"
+    name="name"
+    value="{{ update_product_details?.name }}"
+    ngModel
+  />
+  <input
+    type="text"
+    name="price"
+    value="{{update_product_details?.price }}"
+    ngModel
+  />
+  <input
+    type="text"
+    name="image"
+    value="{{ update_product_details?.image }}"
+    ngModel
+  />
+  <textarea
+    type="text"
+    name="description"
+    value="{{ update_product_details?.description }}"
+    ngModel
+  ></textarea>
+  <select name="cid" ngModel>
+    <option value="">--Select Category--</option>
+    <option *ngFor="let item of categorylist; let i = index" value="{{ i+1 }}">
+      {{ item.name }}
+    </option>
+  </select>
+  <input type="submit" name="" value="Update Product" />
+</form> -->
